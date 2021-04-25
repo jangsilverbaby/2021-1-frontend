@@ -1,0 +1,38 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    div#app { text-align: center; margin: 20px auto; padding: 20px; width: 300px;
+          border: 1px solid gray; box-shadow: 5px 5px 5px #aaa; }
+    p { font-size: 15pt; color: blue; }
+    button { padding: 0.4em 3em;  }
+    div#hello {padding: 20px; margin: 20px auto 0px;
+      background-color: yellow; border: 1px solid black; 
+      width: 50px;  height: 50px;}
+  </style>
+</head>
+<body>
+  <div id="app">
+      <button type="button" v-on:click="show" v-bind:disabled="visible">보이기</button>
+      <button type="button" v-on:click="hide" v-bind:disabled="!visible">감추기</button>
+      <div id="hello" v-show="visible"></div>
+  </div>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        visible: false
+      },
+      methods: {
+        show() {
+          this.visible = true;
+        },
+        hide() {
+          this.visible = false;
+        }
+      }
+    })
+   </script>
+</body>
+</html>

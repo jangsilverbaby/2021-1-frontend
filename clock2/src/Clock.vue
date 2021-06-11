@@ -16,7 +16,10 @@ export default {
       console.log(this.time);
     }
     callback();
-    setInterval(callback, 1000);
+    this.timerId = setInterval(callback, 1000);
+  },
+  beforeDestroy: function() {
+    clearInterval(this.timerId);
   }
 }
 </script>
@@ -24,4 +27,3 @@ export default {
 <style scoped>
 div { display: inline-block; font-size: 15pt; padding:3px 12px; border: 1px solid gray; }
 </style>
-
